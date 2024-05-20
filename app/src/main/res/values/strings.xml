@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Airsoft Hub</string>
+    <string name="prihlasenie">Prihlásenie</string>
+    <string name="registrovanie">Registrovanie</string>
+    <string name="meno_register">Meno</string>
+    <string name="meno_register_value">Meno</string>
+    <string name="heslo_register">Heslo</string>
+    <string name="heslo_register_value">Heslo</string>
+    <string name="email_register">Email</string>
+    <string name="email_register_value">Email</string>
+    <string name="spat_register">Späť</string>
+    <string name="registrovat_register">Registrovať</string>
 </resources>
