@@ -23,13 +23,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontVariation.width
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.airsofthub.R
 
+
 @Composable
-fun Register() {
+fun Login() {
     Surface(color = MaterialTheme.colorScheme.background) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -48,7 +48,7 @@ fun Register() {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp, 30.dp, 16.dp, 0.dp)
+                    .padding(16.dp, 130.dp, 16.dp, 0.dp)
                     .border(
                         1.dp,
                         color = MaterialTheme.colorScheme.primary,
@@ -83,13 +83,12 @@ fun Register() {
                                 .height(60.dp)
                         )
                     }
-
                     TextField(
-                        value = stringResource(R.string.meno_register),
+                        value = stringResource(R.string.email_register),
                         onValueChange = { /*TODO*/ },
                         label = {
                             Text(
-                                stringResource(R.string.meno_register_value)
+                                stringResource(R.string.email_register_value)
                             )
                         },
                         modifier = Modifier
@@ -102,18 +101,6 @@ fun Register() {
                         label = {
                             Text(
                                 stringResource(R.string.heslo_register_value)
-                            )
-                        },
-                        modifier = Modifier
-                            .width(289.dp)
-                            .height(49.dp)
-                    )
-                    TextField(
-                        value = stringResource(R.string.email_register),
-                        onValueChange = { /*TODO*/ },
-                        label = {
-                            Text(
-                                stringResource(R.string.email_register_value)
                             )
                         },
                         modifier = Modifier
@@ -133,7 +120,7 @@ fun Register() {
                         Text(text = stringResource(R.string.spat_register))
                     }
                     Button(onClick = { /*TODO*/ }) {
-                        Text(text = stringResource(R.string.registrovat_register))
+                        Text(text = stringResource(R.string.login_prihlasit))
                     }
                 }
             }
@@ -143,6 +130,6 @@ fun Register() {
 
 @Preview
 @Composable
-fun RegisterPreview() {
-    Register()
+fun LoginPreview() {
+    Login()
 }
