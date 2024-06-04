@@ -26,10 +26,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.airsofthub.R
+import com.example.airsofthub.viewModels.LoginViewModel
 
 
 @Composable
-fun Login() {
+fun Login(viewModel: LoginViewModel) {
     Surface(color = MaterialTheme.colorScheme.background) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -37,18 +38,11 @@ fun Login() {
             horizontalAlignment = Alignment.CenterHorizontally,
 
             ) {
-            Image(
-                painter = painterResource(id = R.drawable.logo2),
-                contentDescription = "",
-                modifier = Modifier
-                    .padding(0.dp, 0.dp, 0.dp, 0.dp)
-                    .width(200.dp)
-                    .height(300.dp)
-            )
+
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp, 130.dp, 16.dp, 0.dp)
+                    .padding(16.dp, 350.dp, 16.dp, 0.dp)
                     .border(
                         1.dp,
                         color = MaterialTheme.colorScheme.primary,
@@ -70,25 +64,27 @@ fun Login() {
                             contentDescription = "",
                             modifier = Modifier
                                 .padding(1.dp)
-                                .width(80.dp)
-                                .height(80.dp)
+                                .width(40.dp)
+                                .height(40.dp)
                                 .background(color = MaterialTheme.colorScheme.background)
                         )
                         Image(
-                            painter = painterResource(id = R.drawable.icona_prihlasovanie),
+                            painter = painterResource(id = R.drawable.icon),
                             contentDescription = "",
                             modifier = Modifier
-                                .padding(0.dp, 0.dp, 5.dp, 0.dp)
-                                .width(60.dp)
-                                .height(60.dp)
+                                .padding(5.dp, 0.dp, 5.dp, 0.dp)
+                                .width(30.dp)
+                                .height(30.dp)
                         )
+
+
                     }
                     TextField(
-                        value = stringResource(R.string.email_register),
-                        onValueChange = { /*TODO*/ },
+                        value = viewModel.username.value,
+                        onValueChange = { newValue -> viewModel.onUsernameChange(newValue)},
                         label = {
                             Text(
-                                stringResource(R.string.email_register_value)
+                                stringResource(R.string.meno_register)
                             )
                         },
                         modifier = Modifier
@@ -96,8 +92,8 @@ fun Login() {
                             .height(49.dp)
                     )
                     TextField(
-                        value = stringResource(R.string.heslo_register),
-                        onValueChange = { /*TODO*/ },
+                        value = viewModel.password.value,
+                        onValueChange = { newValue -> viewModel.onPasswordChange(newValue) },
                         label = {
                             Text(
                                 stringResource(R.string.heslo_register_value)
@@ -119,7 +115,7 @@ fun Login() {
                     Button(onClick = { /*TODO*/ }) {
                         Text(text = stringResource(R.string.spat_register))
                     }
-                    Button(onClick = { /*TODO*/ }) {
+                    Button(onClick = { viewModel.onLogin() }) {
                         Text(text = stringResource(R.string.login_prihlasit))
                     }
                 }
@@ -131,5 +127,5 @@ fun Login() {
 @Preview
 @Composable
 fun LoginPreview() {
-    Login()
+    Login(LoginViewModel())
 }

@@ -11,7 +11,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.airsofthub.screens.AppScreen
+import com.example.airsofthub.screens.AppScreenPreview
+import com.example.airsofthub.screens.Login
 import com.example.airsofthub.screens.LoginRegister
+import com.example.airsofthub.screens.Register
+import com.example.airsofthub.viewModels.LoginViewModel
 import com.example.compose.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LoginRegister()
+                    Login(viewModel = LoginViewModel())
                 }
             }
         }

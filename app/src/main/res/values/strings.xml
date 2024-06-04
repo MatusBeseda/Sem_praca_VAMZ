@@ -11,4 +11,5 @@
     <string name="spat_register">Späť</string>
     <string name="registrovat_register">Registrovať</string>
     <string name="login_prihlasit">Prihlásiť</string>
+    <string name="empty_events">Nie sú vytvorené žiadne udalosti.</string>
 </resources>

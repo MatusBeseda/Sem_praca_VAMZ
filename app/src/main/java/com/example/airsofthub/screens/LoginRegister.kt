@@ -35,14 +35,10 @@ fun LoginRegister() {
             horizontalAlignment = Alignment.CenterHorizontally,
 
         ) {
-            Image(painter = painterResource(id = R.drawable.logo2), contentDescription = "",modifier = Modifier
-                .padding(0.dp, 0.dp, 0.dp, 0.dp)
-                .width(200.dp)
-                .height(300.dp))
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp, 150.dp, 16.dp, 0.dp)
+                    .padding(16.dp, 400.dp, 16.dp, 0.dp)
                     .border(
                         1.dp,
                         color = colorScheme.primary,
@@ -61,14 +57,14 @@ fun LoginRegister() {
                     Box(modifier = Modifier.height(100.dp), contentAlignment = Alignment.Center){
                         Image(painter = painterResource(id = R.drawable.pozadie_kruh), contentDescription = "",modifier = Modifier
                             .padding(1.dp)
-                            .width(80.dp)
-                            .height(80.dp)
+                            .width(40.dp)
+                            .height(40.dp)
                             .background(color = colorScheme.background)
                         )
-                        Image(painter = painterResource(id = R.drawable.icona_prihlasovanie), contentDescription = "",modifier = Modifier
-                            .padding(0.dp, 0.dp, 5.dp, 0.dp)
-                            .width(60.dp)
-                            .height(60.dp)
+                        Image(painter = painterResource(id = R.drawable.icon), contentDescription = "",modifier = Modifier
+                            .padding(5.dp, 0.dp, 5.dp, 0.dp)
+                            .width(30.dp)
+                            .height(30.dp)
                         )
                     }
 
