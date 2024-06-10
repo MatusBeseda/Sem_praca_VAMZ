@@ -2,7 +2,9 @@ package com.example.airsofthub.viewModels
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-class LoginViewModel : ViewModel() {
+import com.example.airsofthub.data.UserDao
+
+class LoginViewModel(private val userDao: UserDao) : ViewModel() {
    internal val username = mutableStateOf("")
    internal val password = mutableStateOf("")
 
@@ -14,7 +16,8 @@ class LoginViewModel : ViewModel() {
         password.value = newPassword
     }
 
-    fun onLogin() {
-        // Login logic
+    fun onLogin(username: String, password: String): Boolean {
+        return userDao.getUser(username, password) != null
     }
+
 }

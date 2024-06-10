@@ -19,6 +19,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -26,11 +28,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.airsofthub.R
+import com.example.airsofthub.data.UserDao
 import com.example.airsofthub.viewModels.LoginViewModel
 
 
 @Composable
-fun Login(viewModel: LoginViewModel) {
+fun Login(viewModel: LoginViewModel,onBack: () -> Unit, onLoginSuccess: () -> Unit) {
+    val username = remember { mutableStateOf("") }
+    val password = remember { mutableStateOf("") }
+
     Surface(color = MaterialTheme.colorScheme.background) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -112,10 +118,15 @@ fun Login(viewModel: LoginViewModel) {
                 )
                 {
 
-                    Button(onClick = { /*TODO*/ }) {
+                    Button(onClick = {  onBack() }) {
                         Text(text = stringResource(R.string.spat_register))
                     }
-                    Button(onClick = { viewModel.onLogin() }) {
+                    Button(onClick = { val success = viewModel.onLogin(username.value, password.value)
+                    if (success) {
+                        onLoginSuccess()
+
+                    }
+                }) {
                         Text(text = stringResource(R.string.login_prihlasit))
                     }
                 }
@@ -124,8 +135,3 @@ fun Login(viewModel: LoginViewModel) {
     }
 }
 
-@Preview
-@Composable
-fun LoginPreview() {
-    Login(LoginViewModel())
-}

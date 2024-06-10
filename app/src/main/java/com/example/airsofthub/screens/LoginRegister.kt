@@ -23,11 +23,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.airsofthub.R
+import com.example.airsofthub.navigation.Routes
 
 
 @Composable
-fun LoginRegister() {
+fun LoginRegister(navigateToLogin: () -> Unit, navigateToRegister: () -> Unit) {
     Surface(color = colorScheme.background) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -68,10 +71,10 @@ fun LoginRegister() {
                         )
                     }
 
-                    Button(onClick = { /*TODO*/ }) {
+                    Button(onClick =  navigateToLogin ) {
                         Text(text = stringResource(id = R.string.prihlasenie))
                     }
-                    Button(onClick = { /*TODO*/ }) {
+                    Button(onClick =  navigateToRegister ) {
                         Text(text = stringResource(id = R.string.registrovanie))
                     }
                 }
@@ -83,5 +86,7 @@ fun LoginRegister() {
     @Preview
     @Composable
     fun LoginRegisterPreview() {
-        LoginRegister()
+        LoginRegister( navigateToLogin = {},
+            navigateToRegister = {}
+        )
     }

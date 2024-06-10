@@ -12,4 +12,18 @@
     <string name="registrovat_register">Registrovať</string>
     <string name="login_prihlasit">Prihlásiť</string>
     <string name="empty_events">Nie sú vytvorené žiadne udalosti.</string>
+    <string name="nova_udalost">Nová udalosť</string>
+    <string name="nazov">Názov</string>
+    <string name="miesto">Miesto</string>
+    <string name="datumACas">Dátum a čas</string>
+    <string name="pridatUdalost">Pridať udalosť</string>
+    <string name="test_event">Test Event</string>
+    <string name="test_miesto">Test Miesto</string>
+    <string name="dateTime_Test">2024-05-01 10:00 AM</string>
+    <string name="MiestoDetails">Location: %1$s</string>
+    <string name="dateDetails">Date: %1$s</string>
+    <string name="popis">Popis: %1$s</string>
+    <string name="test_popis">Test popis</string>
+    <string name="popisEventEntry">Popis</string>
+    <string name="symbol">+</string>
 </resources>

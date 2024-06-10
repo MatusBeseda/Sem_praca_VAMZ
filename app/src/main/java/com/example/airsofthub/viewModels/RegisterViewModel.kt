@@ -2,8 +2,10 @@ package com.example.airsofthub.viewModels
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.example.airsofthub.data.User
+import com.example.airsofthub.data.UserDao
 
-class RegisterViewModel : ViewModel() {
+class RegisterViewModel(private val userDao: UserDao) : ViewModel() {
     internal val username = mutableStateOf("")
     internal val password = mutableStateOf("")
     internal val email = mutableStateOf("")
@@ -22,6 +24,8 @@ class RegisterViewModel : ViewModel() {
     }
 
     fun onRegister() {
-        // Register logic
+        val newUser = User(username.value, password.value)
+        userDao.insertUser(newUser)
     }
+
 }

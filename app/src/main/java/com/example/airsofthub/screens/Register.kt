@@ -19,18 +19,25 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.airsofthub.R
 import com.example.airsofthub.viewModels.LoginViewModel
 import com.example.airsofthub.viewModels.RegisterViewModel
 
 @Composable
-fun Register(viewModel: RegisterViewModel) {
+fun Register(viewModel: RegisterViewModel,onBack: () -> Unit, onRegisterSuccess: () -> Unit) {
+    val username = remember { mutableStateOf("") }
+    val password = remember { mutableStateOf("") }
+    val email = remember { mutableStateOf("") }
     Surface(color = MaterialTheme.colorScheme.background) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -122,10 +129,11 @@ fun Register(viewModel: RegisterViewModel) {
                 )
                 {
 
-                    Button(onClick = { /*TODO*/ }) {
+                    Button(onClick = { onBack()}) {
                         Text(text = stringResource(R.string.spat_register))
                     }
-                    Button(onClick = { viewModel.onRegister() }) {
+                    Button(onClick = { viewModel.onRegister()
+                        onRegisterSuccess() }) {
                         Text(text = stringResource(R.string.registrovat_register))
                     }
                 }
@@ -134,8 +142,4 @@ fun Register(viewModel: RegisterViewModel) {
     }
 }
 
-@Preview
-@Composable
-fun RegisterPreview() {
-    Register(RegisterViewModel())
-}
+
